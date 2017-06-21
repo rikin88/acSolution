@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Twitter Bootstrap example</title>
+        <title>Autocomplete</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css" />
@@ -15,45 +15,21 @@
     
     </head>
     <body>
-        <h1>Products Catalog</>
+        <h1>Autocomplete Demo</h1>
+        <div class="form-group" >
         <div class="well">
-            <input type="text class="span3" id="typeahead" data-provide="typeahead" />
+            <label for="typeahead">Product</label>
+            <input type="text" name="typeahead" id="typeahead" data-provide="typeahead" />
+            <label name="result" id="result"></label>
+        </div>
         </div>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
-
-        <script>
-            $( function() {
-                $('#typeahead').typeahead({
-                    source: function(query, process) {
-                        products=[];
-                        map={};
-
-                        $.ajax( {
-                            url: '/api/Search?',
-                            type: 'GET',
-                            data: 'product=' + query,
-                            dataTpe: 'JSON',
-                            async: true,
-                            success: function(data) {
-                                var temp = JSON.parse(data);
-                                console.log(temp.products[0].id);
-
-                                var results = [];
-                                $.map(temp.products, function(product) {
-                                    results.push(product.name);
-                                });
-
-                                process(results);
-                            }
-                        });   
-                    }
-                });
-            });
-        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="mytypeahead.js"></script>
+        
     </body>
 </html>
