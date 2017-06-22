@@ -102,3 +102,13 @@ https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-debia
 Setting up a cluster:
 https://devopscube.com/how-to-setup-an-elasticsearch-cluster/
 
+Parsing JSON with jq
+http://www.compciv.org/recipes/cli/jq-for-parsing-json/
+
+**********
+
+App Engine notes
+
+download sdk to local machine
+export PATH=$PATH:/Users/rikinasher/developerTools/appengine-java-sdk-1.9.54/bin/
+
